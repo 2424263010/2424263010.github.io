@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>get与post的差异 | 李微宇的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="get与post的差异">
+<meta property="og:url" content="http://yoursite.com/2019/05/14/post&get/index.html">
+<meta property="og:site_name" content="李微宇的个人博客">
+<meta property="og:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/get.png">
+<meta property="og:image" content="http://yoursite.com/images/post.png">
+<meta property="og:image" content="http://yoursite.com/images/request.png">
+<meta property="og:updated_time" content="2019-05-15T15:18:46.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="get与post的差异">
+<meta name="twitter:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+<meta name="twitter:image" content="http://yoursite.com/images/get.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">liweiyu&#39;blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        liweiyu&#39;blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个不想8点起床的人
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-post&amp;get" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      get与post的差异
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-05-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。</p>
+<h2 id="深入传输层的剖析get与post"><a href="#深入传输层的剖析get与post" class="headerlink" title="深入传输层的剖析get与post"></a>深入传输层的剖析get与post</h2><h3 id="首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"><a href="#首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。" class="headerlink" title="首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"></a>首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。</h3><p><img src="/images/get.png" alt><br><img src="/images/post.png" alt></p>
+<h3 id="上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"><a href="#上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。" class="headerlink" title="上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"></a>上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。</h3><blockquote>
+<p>get就是请求得到数据，而post则是请求传输数据。</p>
+</blockquote>
+<h3 id="接下来我们对比一下get和post。"><a href="#接下来我们对比一下get和post。" class="headerlink" title="接下来我们对比一下get和post。"></a>接下来我们对比一下get和post。</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align:center">get</th>
+<th>post</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据长度</td>
+<td style="text-align:center">因为get请求是将数据挂载到url上，所以get请求的数据长度受url的长度限制，（理论上url的长度都限制在2048个字符以内。）</td>
+<td>post请求方式的数据理论上是没有大小限制的，他的数据的大小是有服务器的设置决定的，可以理解为没有大小限制。</td>
+</tr>
+<tr>
+<td>可见性</td>
+<td style="text-align:center">get请求方式是将数据暴露在url中，所以是可见的。</td>
+<td>post请求方式没有在url中暴露。</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td style="text-align:center">因为get请求方式的数据是直接挂载到url上的，能够直接被用户看到，可以说是没有安全可言。</td>
+<td>post请求方式的数据是存放在HTTP请求包的包体中，相对来说较为安全，但这仅仅是对于普通用户来说。</td>
+</tr>
+<tr>
+<td>数据类型的限制</td>
+<td style="text-align:center">get请求只允许ASCII字符。</td>
+<td>post请求对数据类型没有要求，可以接收任意的数据类型。</td>
+</tr>
+<tr>
+<td>历史记录</td>
+<td style="text-align:center">get请求方式的数据会保留在历史记录里边。</td>
+<td>post请求方式的数据不会保留在历史记录里边。</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td style="text-align:center">get请求的数据会被浏览器主动缓存。</td>
+<td>post请求的数据不会被默认缓存，除非主动设置。</td>
+</tr>
+<tr>
+<td>书签</td>
+<td style="text-align:center">get请求可以被收藏到书签。</td>
+<td>post请求不能被收藏到书签。</td>
+</tr>
+<tr>
+<td>刷新或者后退</td>
+<td style="text-align:center">get请求不会重新发起请求</td>
+<td>post请求会被重新提交。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="介绍一下HTTP协议。"><a href="#介绍一下HTTP协议。" class="headerlink" title="介绍一下HTTP协议。"></a>介绍一下HTTP协议。</h3><blockquote>
+<p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。HTTP定义了客户端与服务器交互的不同方法，其中最基本的四种方法分别是PUT、DELETE、POST、GET。他们分别对应着对资源的 <strong><em> 增、删、改、查 </em></strong>四种操作。<br>    get请求会将http header和data一同发送出去，服务器响应200后返回数据。<br>    post请求首先将 http header发送出去，服务器响应100后继续发送data 然后服务器响应200后返回数据（一般都是是否成功）。、<br>    这样一对比就会显示出来get的效率要比post高出来一倍以上。（毕竟要像服务器发送两次请求）</p>
+</blockquote>
+<h4 id="客户端发送一个HTTP请求到服务器的请求消息包括以下格式"><a href="#客户端发送一个HTTP请求到服务器的请求消息包括以下格式" class="headerlink" title="客户端发送一个HTTP请求到服务器的请求消息包括以下格式"></a>客户端发送一个HTTP请求到服务器的请求消息包括以下格式</h4><blockquote>
+<p>请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。<br><img src="/images/request.png" alt></p>
+</blockquote>
+<h3 id="再介绍一下-HTTP请求中请求头-Header里的-Content-Type。"><a href="#再介绍一下-HTTP请求中请求头-Header里的-Content-Type。" class="headerlink" title="再介绍一下 HTTP请求中请求头 Header里的 Content-Type。"></a>再介绍一下 HTTP请求中请求头 Header里的 Content-Type。</h3><blockquote>
+<p>Content-Type一般有这三种。<br>    application/x-www-form-urlencoded ：数据被编码为名称/值对。这是标准的编码格式。<br>    multipart/form-data ： 数据被编码为一条消息，页上的每个控件对应消息中的一个部分。<br>    text/plain ：数据以纯文本形式(text/json/xml/html)进行编码，其中不含任何控件或格式字符。postman软件里标的是RAW。</p>
+</blockquote>
+<blockquote>
+<p>form表单的enctype属性为编码方式，常见的有两种：application/x-www-form-urlencoded、multipart/form-data。默认值是application/x-www-form-urlencoded。<br>    当请求方式为get时浏览器会用application/x-www-form-urlencoded的编码方式把form数据转换成一个字符串，用 <strong><em> ？ </em></strong> 连接url将数据追加到url的后边。生成新的url。<br>    当请求方式为post浏览器会将form数据分装到http body中，如果没有type=file的控件的话，浏览器会使用默认的编码方式application/x-www-form-urlencoded进行编码，如果有type=file控件的话，将会使用multipart/form-data的编码方式进行编码。<br>    当action为post且Content-Type类型是multipart/form-data，浏览器会把整个表单以控件为单位分割，并为每个部分加上Content-Disposition(form-data或者file),Content-Type(默认为text/plain),name(控件name)等信息，并加上分割符(boundary)。</p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年05月15日 23:18</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/14/post&get/" title="get与post的差异">http://yoursite.com/2019/05/14/post&amp;get/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="李微宇">
+                李微宇
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/14/post&get/&title=《get与post的差异》 — 李微宇的个人博客&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/14/post&get/&title=《get与post的差异》 — 李微宇的个人博客&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/14/post&get/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《get与post的差异》 — 李微宇的个人博客&url=http://yoursite.com/2019/05/14/post&get/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/14/post&get/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/05/14/post&get/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#深入传输层的剖析get与post"><span class="post-toc-text">深入传输层的剖析get与post</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"><span class="post-toc-text">首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"><span class="post-toc-text">上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接下来我们对比一下get和post。"><span class="post-toc-text">接下来我们对比一下get和post。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍一下HTTP协议。"><span class="post-toc-text">介绍一下HTTP协议。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端发送一个HTTP请求到服务器的请求消息包括以下格式"><span class="post-toc-text">客户端发送一个HTTP请求到服务器的请求消息包括以下格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再介绍一下-HTTP请求中请求头-Header里的-Content-Type。"><span class="post-toc-text">再介绍一下 HTTP请求中请求头 Header里的 Content-Type。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hello World</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 李微宇<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
