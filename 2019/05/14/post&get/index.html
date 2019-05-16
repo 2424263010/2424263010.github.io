@@ -8,20 +8,20 @@
   
     <meta name="keywords" content="MinHow,MinHow's Blog">
   
-  <meta name="description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+  <meta name="description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTP的基本请求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="get与post的差异">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/post&get/index.html">
 <meta property="og:site_name" content="李微宇的个人博客">
-<meta property="og:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+<meta property="og:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTP的基本请求">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/get.png">
 <meta property="og:image" content="http://yoursite.com/images/post.png">
 <meta property="og:image" content="http://yoursite.com/images/request.png">
-<meta property="og:updated_time" content="2019-05-15T15:18:46.424Z">
+<meta property="og:updated_time" content="2019-05-16T00:28:27.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="get与post的差异">
-<meta name="twitter:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTTP的基本请">
+<meta name="twitter:description" content="今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。 深入传输层的剖析get与post首先get和post都是HTTP的基本请求">
 <meta name="twitter:image" content="http://yoursite.com/images/get.png">
   
   
@@ -143,7 +143,7 @@
       
             
             <p>今天给大家带来的是大部分程序员在面试中都会遇到的一个世纪难题 – get和post的不同点。本来这是一个几乎所有程序员都会准备到的面试题，但是往往他都是大部分程序员的噩梦。因为自己不知道这个题目的完整答案到底有多少，到底需要掌握多少才算是真正的掌握了get和post的区别。那么下面我会带来我个人对这个问题的一点总结与看法。</p>
-<h2 id="深入传输层的剖析get与post"><a href="#深入传输层的剖析get与post" class="headerlink" title="深入传输层的剖析get与post"></a>深入传输层的剖析get与post</h2><h3 id="首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"><a href="#首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。" class="headerlink" title="首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"></a>首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。</h3><p><img src="/images/get.png" alt><br><img src="/images/post.png" alt></p>
+<h2 id="深入传输层的剖析get与post"><a href="#深入传输层的剖析get与post" class="headerlink" title="深入传输层的剖析get与post"></a>深入传输层的剖析get与post</h2><h3 id="首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。"><a href="#首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。" class="headerlink" title="首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。"></a>首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。</h3><p><img src="/images/get.png" alt><br><img src="/images/post.png" alt></p>
 <h3 id="上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"><a href="#上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。" class="headerlink" title="上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"></a>上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。</h3><blockquote>
 <p>get就是请求得到数据，而post则是请求传输数据。</p>
 </blockquote>
@@ -213,7 +213,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月15日 23:18</p>
+        <p>最后更新： 2019年05月16日 08:28</p>
         <p>原始链接： <a class="post-url" href="/2019/05/14/post&get/" title="get与post的差异">http://yoursite.com/2019/05/14/post&amp;get/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -324,7 +324,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#深入传输层的剖析get与post"><span class="post-toc-text">深入传输层的剖析get与post</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。"><span class="post-toc-text">首先get和post都是HTTTP的基本请求方式，但在请求方式上有着明显的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"><span class="post-toc-text">上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接下来我们对比一下get和post。"><span class="post-toc-text">接下来我们对比一下get和post。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍一下HTTP协议。"><span class="post-toc-text">介绍一下HTTP协议。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端发送一个HTTP请求到服务器的请求消息包括以下格式"><span class="post-toc-text">客户端发送一个HTTP请求到服务器的请求消息包括以下格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再介绍一下-HTTP请求中请求头-Header里的-Content-Type。"><span class="post-toc-text">再介绍一下 HTTP请求中请求头 Header里的 Content-Type。</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#深入传输层的剖析get与post"><span class="post-toc-text">深入传输层的剖析get与post</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。"><span class="post-toc-text">首先get和post都是HTTP的基本请求方式，但在请求方式上有着明显的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。"><span class="post-toc-text">上面是我在百度翻译上的截图，从他们各自的中文解释上不难看出他们表面的区别。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接下来我们对比一下get和post。"><span class="post-toc-text">接下来我们对比一下get和post。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍一下HTTP协议。"><span class="post-toc-text">介绍一下HTTP协议。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端发送一个HTTP请求到服务器的请求消息包括以下格式"><span class="post-toc-text">客户端发送一个HTTP请求到服务器的请求消息包括以下格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再介绍一下-HTTP请求中请求头-Header里的-Content-Type。"><span class="post-toc-text">再介绍一下 HTTP请求中请求头 Header里的 Content-Type。</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
