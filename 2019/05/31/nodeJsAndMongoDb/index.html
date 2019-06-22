@@ -3,22 +3,26 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Hello World | 李微宇的个人博客</title>
+  <title>基于express的restful风格的API开发 | 李微宇的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MinHow,MinHow's Blog">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="基于express的restful风格的API开发首先使用express生成一个脚手架     因为这是一个关于api的文章，就不详细说明除了编写api之外的准备过程了。上图的过程需要自己的电脑上配置有node环境，同时还需要全局安装（express-generator）模块，然后按着上述步骤生成一个express脚手架就行了。  接下来简单介绍下ORM 面向对象编程和关系型数据库是现在软件开发中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/05/14/hello-world/index.html">
+<meta property="og:title" content="基于express的restful风格的API开发">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/nodeJsAndMongoDb/index.html">
 <meta property="og:site_name" content="李微宇的个人博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="基于express的restful风格的API开发首先使用express生成一个脚手架     因为这是一个关于api的文章，就不详细说明除了编写api之外的准备过程了。上图的过程需要自己的电脑上配置有node环境，同时还需要全局安装（express-generator）模块，然后按着上述步骤生成一个express脚手架就行了。  接下来简单介绍下ORM 面向对象编程和关系型数据库是现在软件开发中">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T08:54:49.438Z">
+<meta property="og:image" content="http://yoursite.com/images/api-init.png">
+<meta property="og:image" content="http://yoursite.com/images/ORM.png">
+<meta property="og:image" content="http://yoursite.com/images/sql.png">
+<meta property="og:updated_time" content="2019-06-01T02:54:12.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="基于express的restful风格的API开发">
+<meta name="twitter:description" content="基于express的restful风格的API开发首先使用express生成一个脚手架     因为这是一个关于api的文章，就不详细说明除了编写api之外的准备过程了。上图的过程需要自己的电脑上配置有node环境，同时还需要全局安装（express-generator）模块，然后按着上述步骤生成一个express脚手架就行了。  接下来简单介绍下ORM 面向对象编程和关系型数据库是现在软件开发中">
+<meta name="twitter:image" content="http://yoursite.com/images/api-init.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -109,20 +113,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-nodeJsAndMongoDb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Hello World
+      基于express的restful风格的API开发
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-05-14
+          <i class="fa fa-calendar"></i>  2019-05-31
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -138,20 +142,44 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="基于express的restful风格的API开发"><a href="#基于express的restful风格的API开发" class="headerlink" title="基于express的restful风格的API开发"></a>基于express的restful风格的API开发</h2><h3 id="首先使用express生成一个脚手架"><a href="#首先使用express生成一个脚手架" class="headerlink" title="首先使用express生成一个脚手架"></a>首先使用express生成一个脚手架</h3><p><img src="/images/api-init.png" alt></p>
+<blockquote>
+<p>   因为这是一个关于api的文章，就不详细说明除了编写api之外的准备过程了。上图的过程需要自己的电脑上配置有node环境，同时还需要全局安装（express-generator）模块，然后按着上述步骤生成一个express脚手架就行了。</p>
+</blockquote>
+<h3 id="接下来简单介绍下ORM"><a href="#接下来简单介绍下ORM" class="headerlink" title="接下来简单介绍下ORM"></a>接下来简单介绍下ORM</h3><blockquote>
+<p>面向对象编程和关系型数据库是现在软件开发中最流行的技术，虽然广受大家喜爱，但是他们的模型是不一样的，就导致了开发人员需要去适应两种不同的模型，去学习两种风格完全不同的语言。<br>    众所周知，懒是人类科技进步的动力。从而就有了ORM的诞生。<br>    简单的来说,ORM就是通过实例对象的语法，完成关系型数据库的操作技术，是“对象-关系映射”（Object/Relational Mapping）的缩写。如下图所示。</p>
+</blockquote>
+<p><img src="/images/ORM.png" alt></p>
+<blockquote>
+<p>将关系型数据库对象化后，一切都变的简单了起来。接下来咱们来看一下ORM的优劣。</p>
+</blockquote>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>数据模型都在一个地方，更容易更新和维护，也利于重用代码。</li>
+<li>ORM有现成的工具，很多功能都可以自动完成。</li>
+<li>它迫使你使用MVC架构，ORM就是天然的Model，最终是代码更加清晰。</li>
+<li>基于ORM的业务代码比较简单，代码量少，语义性好，容易理解。</li>
+<li>不需要再写复杂的SQL语句了。</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>最严重的的缺点就是ORM不是轻量级工具，它需要很多精力去学习。</li>
+<li>不能实现复杂的SQL语句操作。</li>
+<li>ORM抽象掉了数据库层，让开发者无法了解到数据库层的操作。</li>
+</ul>
+<blockquote>
+<p>好了，综上所述就是ORM真香。</p>
+</blockquote>
+<h3 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h3><blockquote>
+<p>mongoose是ORM的一种，是连接node.js与MongoDB的工具。首先创建一个db.js用于连接数据库。</p>
+</blockquote>
+<p><img src="/images/sql.png" alt></p>
+<blockquote>
+<p>创建的同时需要注意的是一定要在app.js中</p>
+</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月14日 16:54</p>
-        <p>原始链接： <a class="post-url" href="/2019/05/14/hello-world/" title="Hello World">http://yoursite.com/2019/05/14/hello-world/</a></p>
+        <p>最后更新： 2019年06月01日 10:54</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/31/nodeJsAndMongoDb/" title="基于express的restful风格的API开发">http://yoursite.com/2019/05/31/nodeJsAndMongoDb/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="李微宇">
@@ -208,7 +236,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/14/hello-world/&title=《Hello World》 — 李微宇的个人博客&pic=http://yoursite.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/&title=《基于express的restful风格的API开发》 — 李微宇的个人博客&pic=http://yoursite.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -218,22 +246,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/14/hello-world/&title=《Hello World》 — 李微宇的个人博客&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/&title=《基于express的restful风格的API开发》 — 李微宇的个人博客&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/14/hello-world/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — 李微宇的个人博客&url=http://yoursite.com/2019/05/14/hello-world/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于express的restful风格的API开发》 — 李微宇的个人博客&url=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/14/hello-world/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -243,7 +271,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/05/14/hello-world/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/05/31/nodeJsAndMongoDb/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -261,23 +289,28 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于express的restful风格的API开发"><span class="post-toc-text">基于express的restful风格的API开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先使用express生成一个脚手架"><span class="post-toc-text">首先使用express生成一个脚手架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接下来简单介绍下ORM"><span class="post-toc-text">接下来简单介绍下ORM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优点"><span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缺点"><span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongoose"><span class="post-toc-text">mongoose</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/05/14/post&get/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/10/vue/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          get与post的差异
+          vue
         
       </span>
     </a>
   
+  
+    <a href="/2019/05/14/post&get/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">get与post的差异</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
