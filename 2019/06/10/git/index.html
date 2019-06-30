@@ -8,17 +8,17 @@
   
     <meta name="keywords" content="MinHow,MinHow's Blog">
   
-  <meta name="description" content="git start">
+  <meta name="description" content="git startgit常用命令 地址删除12git remote -v # 查看本地地址git remote rm origin # 删除本地地址   分支的操作 创建并切换分支  git checkout -b branchName 在当前分支下进行开发 在当前分支下add和commit 开发完成之后切换分支，合并分支 删除新新创建的分支测试冲突 找一个团队成员的GitHub仓库作为公共仓库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/git/index.html">
 <meta property="og:site_name" content="李微宇的个人博客">
-<meta property="og:description" content="git start">
+<meta property="og:description" content="git startgit常用命令 地址删除12git remote -v # 查看本地地址git remote rm origin # 删除本地地址   分支的操作 创建并切换分支  git checkout -b branchName 在当前分支下进行开发 在当前分支下add和commit 开发完成之后切换分支，合并分支 删除新新创建的分支测试冲突 找一个团队成员的GitHub仓库作为公共仓库">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T02:26:31.989Z">
+<meta property="og:updated_time" content="2019-06-30T08:48:02.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
-<meta name="twitter:description" content="git start">
+<meta name="twitter:description" content="git startgit常用命令 地址删除12git remote -v # 查看本地地址git remote rm origin # 删除本地地址   分支的操作 创建并切换分支  git checkout -b branchName 在当前分支下进行开发 在当前分支下add和commit 开发完成之后切换分支，合并分支 删除新新创建的分支测试冲突 找一个团队成员的GitHub仓库作为公共仓库">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -138,10 +138,56 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="git-start"><a href="#git-start" class="headerlink" title="git start"></a>git start</h3>
+            <h3 id="git-start"><a href="#git-start" class="headerlink" title="git start"></a>git start</h3><p><a href="https://cloud.tencent.com/developer/article/1393916" target="_blank" rel="noopener">git常用命令</a></p>
+<h3 id="地址删除"><a href="#地址删除" class="headerlink" title="地址删除"></a>地址删除</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v <span class="comment"># 查看本地地址</span></span><br><span class="line">git remote rm origin <span class="comment"># 删除本地地址</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<h3 id="分支的操作"><a href="#分支的操作" class="headerlink" title="分支的操作"></a>分支的操作</h3><ul>
+<li>创建并切换分支  git checkout -b branchName</li>
+<li>在当前分支下进行开发</li>
+<li>在当前分支下add和commit</li>
+<li>开发完成之后切换分支，合并分支</li>
+<li>删除新新创建的分支<h3 id="测试冲突"><a href="#测试冲突" class="headerlink" title="测试冲突"></a>测试冲突</h3></li>
+<li>找一个团队成员的GitHub仓库作为公共仓库</li>
+<li>该仓库的负责人把团队成员的公钥放到SSH那个菜单里</li>
+<li>所有的团队成员从远程仓库里拉取最新的代码</li>
+<li>进行冲突测试<h1 id="分支处理"><a href="#分支处理" class="headerlink" title="分支处理"></a>分支处理</h1></li>
+</ul>
+<ol>
+<li>创建分支<blockquote>
+<p>git checkout -b dev</p>
+</blockquote>
+</li>
+<li>创建远程分支<blockquote>
+<p>git push origin dev:dev</p>
+</blockquote>
+</li>
+<li>删除分支<blockquote>
+<p>git branch -d dev</p>
+</blockquote>
+</li>
+<li>删除远程分支<blockquote>
+<p>git push origin –delete dev</p>
+</blockquote>
+</li>
+<li>合并分支<blockquote>
+<p>git merge dev</p>
+</blockquote>
+</li>
+<li>本地创建并与远程分支关联<blockquote>
+<p>git checkout -b dev origin/dev</p>
+</blockquote>
+</li>
+<li>忽略文件<pre><code>&gt; type nul&gt;.gitgnore
+</code></pre></li>
+<li>克隆项目<pre><code>&gt; git clone url
+</code></pre></li>
+</ol>
+<p>npm config set sass_binary_site <a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a></p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年06月11日 10:26</p>
+        <p>最后更新： 2019年06月30日 16:48</p>
         <p>原始链接： <a class="post-url" href="/2019/06/10/git/" title="git">http://yoursite.com/2019/06/10/git/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -252,26 +298,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-start"><span class="post-toc-text">git start</span></a></li></ol>
-        </nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-start"><span class="post-toc-text">git start</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地址删除"><span class="post-toc-text">地址删除</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分支的操作"><span class="post-toc-text">分支的操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试冲突"><span class="post-toc-text">测试冲突</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分支处理"><span class="post-toc-text">分支处理</span></a>
+        </li></nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/06/17/nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/17/混合开发/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          nodejs
+          混合开发
         
       </span>
     </a>
   
   
-    <a href="/2019/06/10/react/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">react</span>
+    <a href="/2019/06/10/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">vue</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

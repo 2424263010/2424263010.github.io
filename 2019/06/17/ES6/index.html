@@ -8,17 +8,17 @@
   
     <meta name="keywords" content="MinHow,MinHow's Blog">
   
-  <meta name="description" content="ES6 startES6。">
+  <meta name="description" content="ES6 startlet、const 这样声明变量没有声明提升，只在块作用域中生效，不能重复定义，const定义的变量不能被改变。  结构赋值 数组形式，对象形式，可以对应的解构赋值，数组按顺序赋值，对象按对象名赋值，可以再定义的里边给默认值，  模板字符串 通过定义，可以再字符串中换行，变量通过 ${} 的方式插入。  箭头函数 可以将  function(){} 定义的函数，写成 ()=&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6">
 <meta property="og:url" content="http://yoursite.com/2019/06/17/ES6/index.html">
 <meta property="og:site_name" content="李微宇的个人博客">
-<meta property="og:description" content="ES6 startES6。">
+<meta property="og:description" content="ES6 startlet、const 这样声明变量没有声明提升，只在块作用域中生效，不能重复定义，const定义的变量不能被改变。  结构赋值 数组形式，对象形式，可以对应的解构赋值，数组按顺序赋值，对象按对象名赋值，可以再定义的里边给默认值，  模板字符串 通过定义，可以再字符串中换行，变量通过 ${} 的方式插入。  箭头函数 可以将  function(){} 定义的函数，写成 ()=&amp;gt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T01:03:45.278Z">
+<meta property="og:updated_time" content="2019-06-30T08:48:01.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
-<meta name="twitter:description" content="ES6 startES6。">
+<meta name="twitter:description" content="ES6 startlet、const 这样声明变量没有声明提升，只在块作用域中生效，不能重复定义，const定义的变量不能被改变。  结构赋值 数组形式，对象形式，可以对应的解构赋值，数组按顺序赋值，对象按对象名赋值，可以再定义的里边给默认值，  模板字符串 通过定义，可以再字符串中换行，变量通过 ${} 的方式插入。  箭头函数 可以将  function(){} 定义的函数，写成 ()=&amp;gt">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -138,10 +138,28 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="ES6-start"><a href="#ES6-start" class="headerlink" title="ES6 start"></a>ES6 start</h3><h4 id="ES6。"><a href="#ES6。" class="headerlink" title="ES6。"></a>ES6。</h4>
+            <h3 id="ES6-start"><a href="#ES6-start" class="headerlink" title="ES6 start"></a>ES6 start</h3><h4 id="let、const"><a href="#let、const" class="headerlink" title="let、const"></a>let、const</h4><blockquote>
+<p>这样声明变量没有声明提升，只在块作用域中生效，不能重复定义，const定义的变量不能被改变。</p>
+</blockquote>
+<h4 id="结构赋值"><a href="#结构赋值" class="headerlink" title="结构赋值"></a>结构赋值</h4><blockquote>
+<p>数组形式，对象形式，可以对应的解构赋值，数组按顺序赋值，对象按对象名赋值，可以再定义的里边给默认值，</p>
+</blockquote>
+<h4 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h4><blockquote>
+<p>通过<code></code>定义，可以再字符串中换行，变量通过 ${} 的方式插入。</p>
+</blockquote>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><blockquote>
+<p>可以将  function(){} 定义的函数，写成 ()=&gt;  若是不写大括号的话，整个函数语句相当于箭头函数的return,箭头函数中的this指向的是定义此函数时所处的环境。一经定义不能被改变。</p>
+</blockquote>
+<h4 id="字符串扩展"><a href="#字符串扩展" class="headerlink" title="字符串扩展"></a>字符串扩展</h4><blockquote>
+<p>扩展运算符  …  可以实现深拷贝，相当于拆分合并。</p>
+</blockquote>
+<h4 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h4><h4 id="set、map"><a href="#set、map" class="headerlink" title="set、map"></a>set、map</h4><h4 id="生成器函数"><a href="#生成器函数" class="headerlink" title="生成器函数"></a>生成器函数</h4><blockquote>
+<p>*functionName(){} 函数内部的 yield 是等待的意思，相当于  ES7中的async  await都是解决回调嵌套的问题。</p>
+</blockquote>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年06月17日 09:03</p>
+        <p>最后更新： 2019年06月30日 16:48</p>
         <p>原始链接： <a class="post-url" href="/2019/06/17/ES6/" title="ES6">http://yoursite.com/2019/06/17/ES6/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -252,19 +270,19 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ES6-start"><span class="post-toc-text">ES6 start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES6。"><span class="post-toc-text">ES6。</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ES6-start"><span class="post-toc-text">ES6 start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#let、const"><span class="post-toc-text">let、const</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#结构赋值"><span class="post-toc-text">结构赋值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模板字符串"><span class="post-toc-text">模板字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数"><span class="post-toc-text">箭头函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串扩展"><span class="post-toc-text">字符串扩展</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组扩展"><span class="post-toc-text">数组扩展</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#set、map"><span class="post-toc-text">set、map</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成器函数"><span class="post-toc-text">生成器函数</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/06/17/JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/17/微信小程序/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JavaScript
+          微信小程序
         
       </span>
     </a>
